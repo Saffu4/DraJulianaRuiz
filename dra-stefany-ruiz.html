@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Stefany Juliana Ruiz | Periodoncia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold-light: #F5E6C8;
+    --gold-mid: #C9A84C;
+    --gold-deep: #9A7430;
+    --gold-dark: #5C4318;
+    --cream: #FAF6EE;
+    --ivory: #F2EBD9;
+    --charcoal: #1A1A18;
+    --charcoal-soft: #2E2C27;
+    --warm-gray: #6B6457;
+    --light-gray: #E8E2D6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(26,26,24,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,168,76,0.25);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--gold-mid);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,230,200,0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--gold-mid);
+  }
+
+  .nav-cta {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--gold-mid);
+    padding: 0.6rem 1.4rem;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold-deep);
+    transform: translateY(-1px);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    display: none;
+    min-height: 100vh;
+    padding-top: 80px;
+    animation: fadeIn 0.5s ease;
+  }
+
+  section.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── HERO ── */
+  #inicio {
+    background: var(--charcoal);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: stretch;
+  }
+
+  .hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 7rem 4rem 5rem 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-mid);
+    margin-bottom: 2rem;
+  }
+
+  .hero-badge::before {
+    content: '';
+    display: block;
+    width: 30px; height: 1px;
+    background: var(--gold-mid);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5rem;
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold-mid);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: rgba(201,168,76,0.6);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-desc {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(245,230,200,0.55);
+    max-width: 420px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--gold-mid);
+    padding: 0.9rem 2rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-mid);
+    border: 1px solid rgba(201,168,76,0.4);
+    padding: 0.9rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: transparent;
+    text-decoration: none;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold-mid);
+    background: rgba(201,168,76,0.08);
+  }
+
+  .hero-right {
+    width: 42%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #2A2518 0%, #1A1A18 50%, #0D0D0B 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .hero-image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(201,168,76,0.12) 0%, transparent 65%);
+  }
+
+  .hero-monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 9rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.15);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-ornament {
+    position: absolute;
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .hero-ornament-1 {
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    top: 15%; right: 15%;
+  }
+
+  .hero-ornament-2 {
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    top: 8%; right: 8%;
+    border-color: rgba(201,168,76,0.07);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding-top: 2rem;
+  }
+
+  .hero-stat {
+    flex: 1;
+    padding-right: 2rem;
+  }
+
+  .hero-stat + .hero-stat {
+    padding-left: 2rem;
+    border-left: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--gold-mid);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,230,200,0.35);
+  }
+
+  /* ── SOBRE MÍ ── */
+  #presentacion {
+    background: var(--cream);
+  }
+
+  .section-header {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+  }
+
+  .section-tag {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-mid);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.1;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold-deep);
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+    max-width: 200px;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold-mid);
+    opacity: 0.4;
+  }
+
+  .section-divider-diamond {
+    width: 6px; height: 6px;
+    background: var(--gold-mid);
+    transform: rotate(45deg);
+  }
+
+  .presentacion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 4rem 6rem;
+    align-items: start;
+  }
+
+  .presentacion-image {
+    position: relative;
+    padding-right: 4rem;
+  }
+
+  .presentacion-img-box {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--charcoal-soft);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .presentacion-img-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.1) 0%, transparent 60%);
+  }
+
+  .presentacion-img-monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.2);
+  }
+
+  .presentacion-frame {
+    position: absolute;
+    bottom: -1.5rem;
+    right: 2.5rem;
+    width: 60%;
+    height: 70%;
+    border: 1px solid rgba(201,168,76,0.3);
+    pointer-events: none;
+  }
+
+  .presentacion-content {
+    padding-left: 2rem;
+  }
+
+  .presentacion-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .presentacion-content p {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--warm-gray);
+    margin-bottom: 1.2rem;
+  }
+
+  .credentials {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .credential-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .credential-item:first-child {
+    border-top: 1px solid var(--light-gray);
+  }
+
+  .credential-icon {
+    width: 36px; height: 36px;
+    background: var(--ivory);
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    color: var(--gold-deep);
+  }
+
+  .credential-text {
+    flex: 1;
+  }
+
+  .credential-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    margin-bottom: 0.2rem;
+  }
+
+  .credential-sub {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--warm-gray);
+  }
+
+  /* ── SERVICIOS ── */
+  #servicios {
+    background: var(--charcoal);
+  }
+
+  #servicios .section-title {
+    color: var(--gold-light);
+  }
+
+  #servicios .section-tag {
+    color: var(--gold-mid);
+  }
+
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.1);
+    margin: 2rem 0 0;
+  }
+
+  .servicio-card {
+    background: var(--charcoal);
+    padding: 3rem 2.5rem;
+    transition: background 0.4s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .servicio-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold-mid);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .servicio-card:hover {
+    background: var(--charcoal-soft);
+  }
+
+  .servicio-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .servicio-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.12);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .servicio-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: var(--gold-mid);
+  }
+
+  .servicio-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .servicio-desc {
+    font-size: 0.75rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(245,230,200,0.45);
+  }
+
+  .servicio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-mid);
+    text-decoration: none;
+  }
+
+  .servicio-link::after {
+    content: '→';
+    transition: transform 0.3s;
+  }
+
+  .servicio-card:hover .servicio-link::after {
+    transform: translateX(4px);
+  }
+
+  /* ── AGENDA ── */
+  #agenda {
+    background: var(--cream);
+  }
+
+  .agenda-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 4rem 6rem;
+  }
+
+  .agenda-info {
+    padding-right: 4rem;
+    border-right: 1px solid var(--light-gray);
+  }
+
+  .agenda-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .agenda-info p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--warm-gray);
+    margin-bottom: 2rem;
+  }
+
+  .horario-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+
+  .horario-table tr {
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .horario-table td {
+    padding: 0.9rem 0;
+    font-size: 0.77rem;
+  }
+
+  .horario-table td:first-child {
+    font-weight: 500;
+    color: var(--charcoal);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    width: 40%;
+  }
+
+  .horario-table td:last-child {
+    color: var(--warm-gray);
+    font-weight: 300;
+  }
+
+  .horario-table .closed td:last-child {
+    color: rgba(107,100,87,0.4);
+    font-style: italic;
+  }
+
+  .agenda-highlight {
+    background: var(--charcoal);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .agenda-highlight-icon {
+    font-size: 1.2rem;
+    color: var(--gold-mid);
+    flex-shrink: 0;
+  }
+
+  .agenda-highlight-text {
+    font-size: 0.75rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(245,230,200,0.65);
+  }
+
+  .agenda-highlight-text strong {
+    color: var(--gold-mid);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Formulario */
+  .agenda-form {
+    padding-left: 4rem;
+  }
+
+  .agenda-form h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    background: var(--ivory);
+    border: 1px solid var(--light-gray);
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.3s;
+    appearance: none;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: var(--gold-mid);
+    background: #fff;
+  }
+
+  .form-textarea { resize: vertical; min-height: 90px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--gold-mid);
+    border: none;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .form-submit:hover {
+    background: var(--gold-deep);
+    color: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .form-note {
+    text-align: center;
+    font-size: 0.68rem;
+    font-weight: 300;
+    color: var(--warm-gray);
+    margin-top: 1rem;
+  }
+
+  /* ── UBICACIÓN ── */
+  #ubicacion {
+    background: var(--ivory);
+  }
+
+  .ubicacion-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 4rem 6rem;
+    align-items: start;
+  }
+
+  .ubicacion-info {
+    padding-right: 4rem;
+  }
+
+  .ubicacion-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 2rem;
+  }
+
+  .contact-block {
+    margin-bottom: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--cream);
+    border-left: 2px solid var(--gold-mid);
+  }
+
+  .contact-block-label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 0.4rem;
+  }
+
+  .contact-block-value {
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  .contact-block-sub {
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--warm-gray);
+    margin-top: 0.2rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .social-link {
+    width: 40px; height: 40px;
+    background: var(--charcoal);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold-mid);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .social-link:hover {
+    background: var(--gold-mid);
+    color: var(--charcoal);
+  }
+
+  .map-container {
+    width: 100%;
+    height: 420px;
+    background: var(--charcoal-soft);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-container iframe {
+    width: 100%; height: 100%;
+    border: none;
+    filter: sepia(0.3) contrast(0.95);
+  }
+
+  .map-badge {
+    position: absolute;
+    bottom: 1.5rem; left: 1.5rem;
+    background: var(--charcoal);
+    padding: 0.7rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    z-index: 2;
+  }
+
+  .map-badge-dot {
+    width: 8px; height: 8px;
+    background: var(--gold-mid);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.7; }
+  }
+
+  .map-badge-text {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--gold-light);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 3rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--gold-mid);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .footer-tagline {
+    font-size: 0.62rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: rgba(245,230,200,0.3);
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+  }
+
+  .footer-copy {
+    font-size: 0.65rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.2);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    z-index: 200;
+    width: 52px; height: 52px;
+    background: var(--gold-mid);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+    transition: transform 0.3s, background 0.3s;
+    text-decoration: none;
+  }
+
+  .wa-float:hover {
+    transform: scale(1.1);
+    background: var(--gold-deep);
+  }
+
+  .wa-float svg {
+    width: 24px; height: 24px;
+    fill: var(--charcoal);
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    display: none;
+    position: fixed;
+    bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    background: var(--charcoal);
+    color: var(--gold-mid);
+    padding: 0.9rem 2rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    border-left: 3px solid var(--gold-mid);
+    z-index: 300;
+    animation: slideUp 0.3s ease;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  /* ── ESTRELLA DECORATIVA ── */
+  .oro-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 300px;
+    margin: 2rem 0;
+  }
+
+  .oro-line-bar {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold-mid), transparent);
+  }
+
+  .oro-line-diamond {
+    width: 5px; height: 5px;
+    background: var(--gold-mid);
+    transform: rotate(45deg);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dra. Stefany Juliana Ruiz</div>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showSection('inicio')" class="active" id="nav-inicio">Inicio</a></li>
+    <li><a href="#" onclick="showSection('presentacion')" id="nav-presentacion">Presentación</a></li>
+    <li><a href="#" onclick="showSection('servicios')" id="nav-servicios">Servicios</a></li>
+    <li><a href="#" onclick="showSection('agenda')" id="nav-agenda">Agendar</a></li>
+    <li><a href="#" onclick="showSection('ubicacion')" id="nav-ubicacion">Contacto</a></li>
+  </ul>
+  <a href="#" class="nav-cta" onclick="showSection('agenda'); return false;">Reservar Cita</a>
+</nav>
+
+<!-- ══ INICIO ══ -->
+<section id="inicio" class="active">
+  <div style="display:flex; min-height:calc(100vh - 80px);">
+    <div class="hero-left">
+      <div class="hero-badge">Especialista en Periodoncia</div>
+      <h1 class="hero-name">
+        Dra. <em>Stefany</em><br>Juliana Ruiz
+      </h1>
+      <p class="hero-title">Odontología · Periodoncia · Implantología</p>
+      <p class="hero-desc">
+        Dedicada al diagnóstico, prevención y tratamiento de las enfermedades que afectan los tejidos de soporte dental. Una práctica clínica fundamentada en la evidencia científica y el cuidado personalizado.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#" onclick="showSection('agenda'); return false;">Agendar Cita</a>
+        <a class="btn-outline" href="#" onclick="showSection('servicios'); return false;">Ver Servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">+10</div>
+          <div class="hero-stat-label">Años de experiencia</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">+2K</div>
+          <div class="hero-stat-label">Pacientes atendidos</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Compromiso clínico</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-image-placeholder">
+        <div class="hero-ornament hero-ornament-2"></div>
+        <div class="hero-ornament hero-ornament-1"></div>
+        <div class="hero-monogram">SJR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRESENTACIÓN ══ -->
+<section id="presentacion">
+  <div class="section-header">
+    <span class="section-tag">Acerca de la doctora</span>
+    <h2 class="section-title">Formación &amp; <em>Trayectoria</em></h2>
+    <div class="section-divider"><div class="section-divider-diamond"></div></div>
+  </div>
+  <div class="presentacion-grid">
+    <div class="presentacion-image">
+      <div class="presentacion-img-box">
+        <div class="presentacion-img-monogram">SJR</div>
+      </div>
+      <div class="presentacion-frame"></div>
+    </div>
+    <div class="presentacion-content">
+      <div class="oro-line"><div class="oro-line-bar"></div><div class="oro-line-diamond"></div></div>
+      <h3>Una especialista comprometida con la salud periodontal</h3>
+      <p>La Dra. Stefany Juliana Ruiz es odontóloga con especialización en Periodoncia, apasionada por el diagnóstico temprano y el tratamiento integral de las enfermedades periodontales.</p>
+      <p>Con más de una década de experiencia clínica, combina el rigor científico con un trato cálido y personalizado, brindando a cada paciente una atención de alta calidad basada en protocolos internacionales.</p>
+      <p>Su enfoque preventivo y su constante actualización académica garantizan tratamientos modernos, mínimamente invasivos y orientados al bienestar a largo plazo.</p>
+      <div class="credentials">
+        <div class="credential-item">
+          <div class="credential-icon">🎓</div>
+          <div class="credential-text">
+            <div class="credential-title">Odontóloga General</div>
+            <div class="credential-sub">Universidad de Santander · UDES</div>
+          </div>
+        </div>
+        <div class="credential-item">
+          <div class="credential-icon">🏅</div>
+          <div class="credential-text">
+            <div class="credential-title">Especialista en Periodoncia</div>
+            <div class="credential-sub">Postgrado — Colombia</div>
+          </div>
+        </div>
+        <div class="credential-item">
+          <div class="credential-icon">📋</div>
+          <div class="credential-text">
+            <div class="credential-title">Registro RETHUS</div>
+            <div class="credential-sub">Inscrita ante el Ministerio de Salud</div>
+          </div>
+        </div>
+        <div class="credential-item">
+          <div class="credential-icon">🌐</div>
+          <div class="credential-text">
+            <div class="credential-title">Actualización Continua</div>
+            <div class="credential-sub">Congresos internacionales de periodoncia e implantología</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICIOS ══ -->
+<section id="servicios">
+  <div class="section-header">
+    <span class="section-tag" style="color:var(--gold-mid)">Especialidades Clínicas</span>
+    <h2 class="section-title" style="color:var(--gold-light)">Nuestros <em>Servicios</em></h2>
+    <div class="section-divider"><div class="section-divider-diamond"></div></div>
+  </div>
+  <div class="servicios-grid">
+    <div class="servicio-card">
+      <div class="servicio-num">01</div>
+      <div class="servicio-icon">🦷</div>
+      <div class="servicio-name">Diagnóstico Periodontal</div>
+      <p class="servicio-desc">Evaluación clínica y radiográfica completa del estado de sus encías y hueso alveolar. Sondaje periodontal, índice de placa y plan de tratamiento personalizado.</p>
+      <a class="servicio-link" href="#" onclick="showSection('agenda'); return false;">Solicitar cita</a>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">02</div>
+      <div class="servicio-icon">✨</div>
+      <div class="servicio-name">Raspado y Alisado Radicular</div>
+      <p class="servicio-desc">Limpieza profunda subgingival con ultrasonido e instrumentos manuales para eliminar el cálculo y biofilm responsables de la periodontitis.</p>
+      <a class="servicio-link" href="#" onclick="showSection('agenda'); return false;">Solicitar cita</a>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">03</div>
+      <div class="servicio-icon">🔬</div>
+      <div class="servicio-name">Cirugía Periodontal</div>
+      <p class="servicio-desc">Procedimientos quirúrgicos resectivos y regenerativos para tratar bolsas periodontales profundas, incluyendo injertos óseos y de tejido conectivo.</p>
+      <a class="servicio-link" href="#" onclick="showSection('agenda'); return false;">Solicitar cita</a>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">04</div>
+      <div class="servicio-icon">💎</div>
+      <div class="servicio-name">Estética Gingival</div>
+      <p class="servicio-desc">Remodelación del contorno gingival, alargamiento de corona clínica y manejo de la sonrisa gingival para una estética dental equilibrada y armónica.</p>
+      <a class="servicio-link" href="#" onclick="showSection('agenda'); return false;">Solicitar cita</a>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">05</div>
+      <div class="servicio-icon">🦿</div>
+      <div class="servicio-name">Implantes Dentales</div>
+      <p class="servicio-desc">Colocación quirúrgica de implantes osteointegrados de titanio. Valoración, planificación 3D y seguimiento completo desde la cirugía hasta la carga protésica.</p>
+      <a class="servicio-link" href="#" onclick="showSection('agenda'); return false;">Solicitar cita</a>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">06</div>
+      <div class="servicio-icon">🛡️</div>
+      <div class="servicio-name">Mantenimiento Periodontal</div>
+      <p class="servicio-desc">Programa de terapia de mantenimiento para pacientes con periodontitis tratada. Control y profilaxis periódica para prevenir la recidiva de la enfermedad.</p>
+      <a class="servicio-link" href="#" onclick="showSection('agenda'); return false;">Solicitar cita</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AGENDA ══ -->
+<section id="agenda">
+  <div class="section-header">
+    <span class="section-tag">Reservas</span>
+    <h2 class="section-title">Agende su <em>Cita</em></h2>
+    <div class="section-divider"><div class="section-divider-diamond"></div></div>
+  </div>
+  <div class="agenda-layout">
+    <!-- Info horarios -->
+    <div class="agenda-info">
+      <h3>Horarios de Atención</h3>
+      <p>Contamos con horarios flexibles para adaptarnos a sus actividades. Le recomendamos agendar con al menos 48 horas de anticipación.</p>
+      <table class="horario-table">
+        <tr><td>Lunes – Viernes</td><td>8:00 am – 12:00 m &nbsp;|&nbsp; 2:00 – 6:00 pm</td></tr>
+        <tr><td>Sábado</td><td>8:00 am – 1:00 pm</td></tr>
+        <tr class="closed"><td>Domingo</td><td>Cerrado</td></tr>
+        <tr class="closed"><td>Festivos</td><td>Cerrado</td></tr>
+      </table>
+      <div class="agenda-highlight">
+        <div class="agenda-highlight-icon">📞</div>
+        <div class="agenda-highlight-text">
+          <strong>Citas de urgencia</strong>
+          Para urgencias periodontales, comuníquese directamente a nuestro WhatsApp. Atendemos casos prioritarios el mismo día según disponibilidad.
+        </div>
+      </div>
+      <div class="agenda-highlight">
+        <div class="agenda-highlight-icon">🩺</div>
+        <div class="agenda-highlight-text">
+          <strong>Primera consulta</strong>
+          La primera cita incluye examen clínico completo, valoración periodontal y diagnóstico por imágenes. Duración aproximada: 60 minutos.
+        </div>
+      </div>
+      <div class="agenda-highlight">
+        <div class="agenda-highlight-icon">💳</div>
+        <div class="agenda-highlight-text">
+          <strong>Medios de pago</strong>
+          Efectivo, tarjetas débito y crédito, transferencias bancarias. Planes de financiación disponibles.
+        </div>
+      </div>
+    </div>
+    <!-- Formulario -->
+    <div class="agenda-form">
+      <h3>Solicitar Cita</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-input" placeholder="Su nombre" id="f-nombre">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Apellidos</label>
+          <input type="text" class="form-input" placeholder="Sus apellidos" id="f-apellidos">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Teléfono / WhatsApp</label>
+          <input type="tel" class="form-input" placeholder="+57 300 000 0000" id="f-tel">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Correo electrónico</label>
+          <input type="email" class="form-input" placeholder="correo@ejemplo.com" id="f-email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Servicio de interés</label>
+        <select class="form-select" id="f-servicio">
+          <option value="">— Seleccione un servicio —</option>
+          <option>Diagnóstico Periodontal (Primera vez)</option>
+          <option>Raspado y Alisado Radicular</option>
+          <option>Cirugía Periodontal</option>
+          <option>Estética Gingival</option>
+          <option>Implantes Dentales</option>
+          <option>Mantenimiento Periodontal</option>
+          <option>Urgencia</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Fecha preferida</label>
+          <input type="date" class="form-input" id="f-fecha">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Hora preferida</label>
+          <select class="form-select" id="f-hora">
+            <option value="">— Seleccione —</option>
+            <option>8:00 am</option>
+            <option>9:00 am</option>
+            <option>10:00 am</option>
+            <option>11:00 am</option>
+            <option>2:00 pm</option>
+            <option>3:00 pm</option>
+            <option>4:00 pm</option>
+            <option>5:00 pm</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mensaje o motivo de consulta</label>
+        <textarea class="form-textarea" placeholder="Cuéntenos brevemente el motivo de su consulta..." id="f-mensaje"></textarea>
+      </div>
+      <button class="form-submit" onclick="enviarCita()">Solicitar Cita por WhatsApp</button>
+      <p class="form-note">Su información es confidencial. Nos comunicaremos para confirmar disponibilidad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ UBICACIÓN ══ -->
+<section id="ubicacion">
+  <div class="section-header">
+    <span class="section-tag">Ubicación &amp; Contacto</span>
+    <h2 class="section-title">Encuéntrenos <em>aquí</em></h2>
+    <div class="section-divider"><div class="section-divider-diamond"></div></div>
+  </div>
+  <div class="ubicacion-layout">
+    <div class="ubicacion-info">
+      <h3>Consultorio Dental</h3>
+      <div class="contact-block">
+        <div class="contact-block-label">📍 Dirección</div>
+        <div class="contact-block-value">Calle 35 # 26 – 71<br>Consultorio 302</div>
+        <div class="contact-block-sub">Bucaramanga, Santander, Colombia</div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-label">📞 Teléfono &amp; WhatsApp</div>
+        <div class="contact-block-value">+57 310 000 0000</div>
+        <div class="contact-block-sub">Lunes a sábado en horario de atención</div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-label">📧 Correo</div>
+        <div class="contact-block-value">dra.stefanyruiz@gmail.com</div>
+        <div class="contact-block-sub">Respuesta en menos de 24 horas hábiles</div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-label">🅿️ Parqueadero</div>
+        <div class="contact-block-value">Disponible en el edificio</div>
+        <div class="contact-block-sub">Primer hora con tarifa especial para pacientes</div>
+      </div>
+      <div class="social-links">
+        <a class="social-link" href="#" title="Instagram">IG</a>
+        <a class="social-link" href="#" title="Facebook">FB</a>
+        <a class="social-link" href="#" title="WhatsApp">WA</a>
+        <a class="social-link" href="#" title="TikTok">TK</a>
+      </div>
+    </div>
+    <!-- Mapa -->
+    <div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31771.48!2d-73.1198!3d7.1193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f3b2a3c4b5f%3A0x0!2sBucaramanga%2C+Santander!5e0!3m2!1ses!2sco!4v1"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-badge">
+          <div class="map-badge-dot"></div>
+          <div class="map-badge-text">Bucaramanga, Santander</div>
+        </div>
+      </div>
+      <div style="background:var(--charcoal); padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <div style="font-size:0.65rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-mid); margin-bottom:0.3rem;">¿Cómo llegar?</div>
+          <div style="font-size:0.75rem; font-weight:300; color:rgba(245,230,200,0.5);">Cerca al centro histórico de Bucaramanga</div>
+        </div>
+        <a href="https://maps.google.com" target="_blank" class="btn-outline" style="font-size:0.6rem; padding:0.6rem 1.2rem;">Abrir en Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Dra. Stefany Juliana Ruiz</div>
+    <div class="footer-tagline">Periodoncia &amp; Implantología · Bucaramanga</div>
+  </div>
+  <div class="footer-copy">© 2025 · Todos los derechos reservados</div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a class="wa-float" href="https://wa.me/573100000000" target="_blank" title="Chatea por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- Toast -->
+<div class="toast" id="toast">✓ Solicitud enviada por WhatsApp</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.getElementById('nav-' + id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  function enviarCita() {
+    const nombre = document.getElementById('f-nombre').value.trim();
+    const apellidos = document.getElementById('f-apellidos').value.trim();
+    const tel = document.getElementById('f-tel').value.trim();
+    const servicio = document.getElementById('f-servicio').value;
+    const fecha = document.getElementById('f-fecha').value;
+    const hora = document.getElementById('f-hora').value;
+    const mensaje = document.getElementById('f-mensaje').value.trim();
+
+    if (!nombre || !tel || !servicio) {
+      alert('Por favor complete nombre, teléfono y servicio de interés.');
+      return;
+    }
+
+    let text = `*Solicitud de Cita — Dra. Stefany Juliana Ruiz*\n\n`;
+    text += `👤 *Paciente:* ${nombre} ${apellidos}\n`;
+    text += `📞 *Teléfono:* ${tel}\n`;
+    text += `🦷 *Servicio:* ${servicio}\n`;
+    if (fecha) text += `📅 *Fecha preferida:* ${fecha}\n`;
+    if (hora) text += `⏰ *Hora preferida:* ${hora}\n`;
+    if (mensaje) text += `📝 *Motivo:* ${mensaje}\n`;
+
+    const url = 'https://wa.me/573100000000?text=' + encodeURIComponent(text);
+    window.open(url, '_blank');
+
+    const toast = document.getElementById('toast');
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 3500);
+  }
+
+  // Fecha mínima = hoy
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('f-fecha').min = today;
+</script>
+</body>
+</html>
